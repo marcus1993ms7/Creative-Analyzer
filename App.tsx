@@ -44,26 +44,6 @@ const App: React.FC = () => {
   
   const brandMenuRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const autoLinkKey = async () => {
-      const win = window as any;
-      if (win.aistudio && typeof win.aistudio.hasSelectedApiKey === 'function') {
-        try {
-          const hasKey = await win.aistudio.hasSelectedApiKey();
-          if (!hasKey && typeof win.aistudio.openSelectKey === 'function') {
-            await win.aistudio.openSelectKey();
-          }
-        } catch (err) {
-          console.warn("Erro ao verificar chave automaticamente:", err);
-        }
-      }
-    };
-    
-    // Pequeno delay para garantir estabilidade no carregamento do iframe do AI Studio
-    const timer = setTimeout(autoLinkKey, 800);
-    return () => clearTimeout(timer);
-  }, []);
-
   const handleOpenKeySelector = async () => {
     const win = window as any;
     if (win.aistudio && typeof win.aistudio.openSelectKey === 'function') {
