@@ -3,42 +3,6 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { AnalysisResult, Platform } from "../types";
 
-
-const TRIGGER_LIBRARY = `
---- BIBLIOTECA OFICIAL DE GATILHOS (TAXONOMIA) ---
-1. Atributo: Prova Social (Muitas pessoas já fizeram e deu certo.)
-2. Atributo: Autoridade (Validação por instituições, especialistas ou dados oficiais.)
-3. Atributo: Resultados Concretos (Métricas claras: emprego, salário, aprovação, crescimento.)
-4. Atributo: Casos Reais (Histórias objetivas de pessoas semelhantes ao público.)
-5. Atributo: Eficiência (Menos tempo, menos esforço, mais resultado.)
-6. Atributo: Credibilidade (Tradição, reputação e histórico confiável.)
-7. Atributo: Segurança (Estabilidade, regulamentação, estrutura sólida.)
-8. Atributo: Qualidade Percebida (Sensação de algo bem feito e profissional.)
-9. Atributo: Pertencimento (Fazer parte de algo maior ou reconhecido.)
-10. Atributo: Identificação (Linguagem, estética e valores próximos do público.)
-11. Atributo: Confiabilidade (Cumpre o que promete, sem surpresas.)
-12. Atributo: Clareza (Comunicação simples, objetiva e transparente.)
-13. Atributo: Humanização (Mostra pessoas reais, empatia e proximidade.)
-14. Atributo + Performance: Status (Valorização social ou profissional indireta.)
-15. Atributo + Performance: Diferenciação (Característica única que foge do padrão.)
-16. Atributos + Performance: Validação Externa (Reconhecimento pelo mercado ou órgãos reguladores.)
-17. Oferta: Ancoragem de Preço (Comparação com preço anterior ou valor “real” maior.)
-18. Oferta: Inclusão (Bolsas de até 100% para estudar.)
-19. Oferta: Acessibilidade Financeira (Mostra que “cabe no bolso” (parcelas, valores baixos).)
-20. Oferta: Benefício Extra (Algo a mais sem custo (isenção, bônus, vantagem).)
-21. Oferta + Performance: Custo de Oportunidade (Destaca o que a pessoa perde ao não agir agora.)
-22. Oferta + Atributo: Autonomia e Inclusão (Bolsas de até 100% para estudar de onde e como quiser.)
-23. Performance: Escassez (Poucas vagas, tempo limitado ou benefício que acaba logo.)
-24. Performance: FOMO (Aversão à perda)
-25. Performance: Urgência (Pressão temporal clara para decisão imediata.)
-26. Performance: Facilidade (Processo simples, sem burocracia ou esforço.)
-27. Performance: Exclusividade (Oferta válida apenas para um grupo específico.)
-28. Performance: Previsibilidade (Caminho claro do início ao resultado final.)
-29. Performance: Comparativo de Performance (Mostra desempenho superior frente à média do mercado.)
-30. Performance + Atributo: Risco Zero (Garantias, cancelamento fácil, sem compromisso inicial.)
-import { GoogleGenAI, Type } from "@google/genai";
-import { AnalysisResult, Platform } from "../types";
-
 const TRIGGER_LIBRARY = `
 --- BIBLIOTECA OFICIAL DE GATILHOS (TAXONOMIA) ---
 1. Atributo: Prova Social (Muitas pessoas já fizeram e deu certo.)
@@ -101,7 +65,7 @@ export const analyzeCreative = async (
 ): Promise<AnalysisResult> => {
   // Se process.env.API_KEY for uma string vazia ou falsy, passamos undefined
   // para permitir que o proxy do AI Studio injete automaticamente a chave selecionada no iframe.
-  const apiKey = process.env.API_KEY || AQ.Ab8RN6JXxT97sT0QCNn9U2IB3i5-30tLI3cnOeoJgTz3BTTLYw;
+  const apiKey = process.env.API_KEY || "AQ.Ab8RN6JXxT97sT0QCNn9U2IB3i5-30tLI3cnOeoJgTz3BTTLYw";
   const ai = new GoogleGenAI(apiKey ? { apiKey } : {});
 
   const parts: any[] = [];
