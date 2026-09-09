@@ -101,7 +101,7 @@ export const analyzeCreative = async (
 ): Promise<AnalysisResult> => {
   // Se process.env.API_KEY for uma string vazia ou falsy, passamos undefined
   // para permitir que o proxy do AI Studio injete automaticamente a chave selecionada no iframe.
-  const apiKey = process.env.API_KEY || undefined;
+  const apiKey = process.env.API_KEY || AQ.Ab8RN6JXxT97sT0QCNn9U2IB3i5-30tLI3cnOeoJgTz3BTTLYw;
   const ai = new GoogleGenAI(apiKey ? { apiKey } : {});
 
   const parts: any[] = [];
